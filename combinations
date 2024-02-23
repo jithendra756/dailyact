@@ -1,1 +1,28 @@
 https://leetcode.com/problems/combinations/submissions/1184234034
+
+class Solution {
+    public static void cs(int n,int ind,int k,List<List<Integer>> ans,List<Integer> ds,List<Integer> l1)
+    {
+        if(k==0)
+        {
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        if(ind==n)
+        return;
+        ds.add(l1.get(ind));
+        cs(n,ind+1,k-1,ans,ds,l1);
+        ds.remove(ds.size()-1);
+        cs(n,ind+1,k,ans,ds,l1);
+    }
+    public List<List<Integer>> combine(int n, int k) {
+        List<Integer> l1 = new ArrayList<>();
+        for(int i=1;i<=n;i++)
+        {
+            l1.add(i);
+        }
+        List<List<Integer>> ans = new ArrayList<>();
+        cs(n,0,k,ans,new ArrayList<>(),l1);
+        return ans;
+    }
+}
