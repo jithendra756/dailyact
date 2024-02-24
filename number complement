@@ -1,0 +1,22 @@
+https://leetcode.com/problems/number-complement/submissions/1185090726
+
+class Solution {
+    public int findComplement(int num) {
+        String s1 = Integer.toBinaryString(num);
+        StringBuilder sb = new StringBuilder(s1);
+        for(int i=0;i<sb.length();i++)
+        {
+            if(sb.charAt(i)=='0')
+            sb.setCharAt(i,'1');
+            else
+            sb.setCharAt(i,'0');
+        }
+                System.out.println(sb);
+
+        if(sb.charAt(sb.length()-1)==1)
+        sb.setCharAt(sb.length()-1,'0');
+        Integer i = Integer.parseInt(sb.toString(),2);
+        System.out.println(i);
+        return i;
+    }
+}
