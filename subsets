@@ -1,0 +1,20 @@
+https://leetcode.com/problems/subsets/submissions/1185484353
+
+class Solution {
+    public static void ss(int ind, int[] nums, int n, List<List<Integer>> ans, List<Integer> ds) {
+        if (ind == n) {
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        ds.add(nums[ind]);
+        ss(ind + 1, nums, n, ans, ds);
+        ds.remove(ds.size() - 1);
+        ss(ind + 1, nums, n, ans, ds);
+    }
+
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        ss(0, nums, nums.length, ans, new ArrayList<Integer>());
+        return ans;
+    }
+}
