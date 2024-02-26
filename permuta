@@ -1,0 +1,39 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+    static int arr[]=new int[]{1,2,3};
+    static int n=2;
+    static void swap(int a,int b)
+    {
+        int temp=arr[a];
+        arr[a]=arr[b];
+        arr[b]=temp;
+    }
+	public static void main(String[] args) {
+		int a=0,b=1;
+		for(int i=0;i<6;i++)
+		{
+		    swap(a,b);
+		    if(a<n)
+		    a++;
+		    else if(a==n)
+		    a=0;
+		    if(b<n)
+		    b++;
+		    else if(b==n)
+		    b=0;
+		    //System.out.println("a : "+a+"b : "+b);
+		    for(int j=0;j<=n;j++)
+		    {
+		        System.out.print(arr[j]+" ");
+		    }System.out.println();
+		}
+	}
+}
