@@ -1,0 +1,29 @@
+https://leetcode.com/problems/permutations/submissions/1186959710
+
+class Solution {
+    public static void pp(int[] nums,List<List<Integer>> ans,List<Integer> ds,boolean[] map)
+    {
+        if(ds.size()==nums.length)
+        {
+            ans.add(new ArrayList<>(ds));
+            return;
+        }
+        for(int i=0;i<nums.length;i++)
+        {
+            if(!map[i])
+            {
+                map[i]=true;
+                ds.add(nums[i]);
+                pp(nums,ans,ds,map);
+                ds.remove(ds.size()-1);
+                map[i]=false;
+            }
+        }
+    }
+    public List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        boolean[] map=new boolean[nums.length];
+        pp(nums,ans,new ArrayList<Integer>(),map);
+        return ans;
+    }
+}
