@@ -1,0 +1,17 @@
+https://leetcode.com/problems/jewels-and-stones/submissions/1187951145
+
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+        int count=0;
+        for(int i=0;i<jewels.length();i++)
+        {
+            String s= jewels.substring(i,i+1);
+            for(int j=0;j<stones.length();j++)
+            {
+                if(s.equals(stones.substring(j,j+1)))
+                count++;
+            }
+        }
+        return count;
+    }
+}
